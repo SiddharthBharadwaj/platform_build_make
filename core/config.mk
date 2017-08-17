@@ -231,7 +231,10 @@ include $(BUILD_SYSTEM)/envsetup.mk
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
 -include vendor/extra/BoardConfigExtra.mk
+
+ifneq ($(COLT_BUILD),)
 include vendor/colt/config/BoardConfigColt.mk
+endif
 
 # The build system exposes several variables for where to find the kernel
 # headers:
@@ -1172,18 +1175,18 @@ include $(BUILD_SYSTEM)/ninja_config.mk
 include $(BUILD_SYSTEM)/soong_config.mk
 endif
 
-ifneq ($(wildcard device/colt/sepolicy/common/sepolicy.mk),)
+-include external/linux-kselftest/android/kselftest_test_list.mk
+-include external/ltp/android/ltp_package_list.mk
+DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages) $(kselftest_modules)
+.KATI_READONLY := DEFAULT_DATA_OUT_MODULES
+
+ifneq ($(COLT_BUILD),)
 ## We need to be sure the global selinux policies are included
 ## last, to avoid accidental resetting by device configs
 $(eval include device/colt/sepolicy/common/sepolicy.mk)
 endif
 
 # Include any vendor specific config.mk file
--include $(TOPDIR)vendor/*/build/core/config.mk
-
--include external/linux-kselftest/android/kselftest_test_list.mk
--include external/ltp/android/ltp_package_list.mk
-DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages) $(kselftest_modules)
-.KATI_READONLY := DEFAULT_DATA_OUT_MODULES
+-include vendor/*/build/core/config.mk
 
 include $(BUILD_SYSTEM)/dumpvar.mk
