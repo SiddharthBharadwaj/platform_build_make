@@ -979,7 +979,25 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   if HasVendorPartition(input_zip):
     system_progress -= 0.1
 
-  script.ShowProgress(system_progress, 0)
+#Print ASCII
+  model = target_info.GetBuildProp("ro.product.model")
+  build = target_info.GetBuildProp("ro.build.date")
+  script.Print("*****************************************************");
+  script.Print("*   ____            ___    __    _____   ____       *");
+  script.Print("* /\  _`\         /\_ \  /\ \__/\  __`\/\  _`\      *");
+  script.Print("* \ \ \/\_\    ___\//\ \ \ \ ,_\ \ \/\ \ \,\L\_\    *");
+  script.Print("*  \ \ \/_/_  / __`\\ \ \ \ \ \/\ \ \ \ \/_\__ \    *");
+  script.Print("*   \ \ \L\ \/\ \L\ \\_\ \_\ \ \_\ \ \_\ \/\ \L\ \  *");
+  script.Print("*    \ \____/\ \____//\____\\ \__\\ \_____\ `\____\ *");
+  script.Print("*     \/___/  \/___/ \/____/ \/__/ \/_____/\/_____/ *");
+  script.Print("*                                                   *");
+  script.Print("*****************************************************");
+  script.Print("*             by Rakesh Batra (*TeamColt)           *");
+  script.Print("*                Its Android 10 Enjoy               *");
+  script.Print("*****************************************************");
+  script.Print(" Compiled: %s "%(build));
+  script.Print(" For: %s   "%(model));
+  script.Print("*****************************************************");
 
   def GetBlockDifference(partition):
     # Full OTA is done as an "incremental" against an empty source image. This
