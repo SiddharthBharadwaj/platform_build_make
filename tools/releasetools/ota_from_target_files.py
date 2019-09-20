@@ -980,8 +980,13 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     system_progress -= 0.1
 
 #Print ASCII
-  model = target_info.GetBuildProp("ro.product.model")
+  manufacturer = target_info.GetBuildProp("ro.product.manufacturer")
   build = target_info.GetBuildProp("ro.build.date")
+  android_version = target_info.GetBuildProp("ro.build.version.release")
+  build_id = target_info.GetBuildProp("ro.build.id")
+  security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
+  device = target_info.GetBuildProp("ro.product.device")
+
   script.Print("*****************************************************");
   script.Print("*   ____            ___    __    _____   ____       *");
   script.Print("* /\  _`\         /\_ \  /\ \__/\  __`\/\  _`\      *");
@@ -995,8 +1000,12 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("*             by Rakesh Batra (*TeamColt)           *");
   script.Print("*                Its Android 10 Enjoy               *");
   script.Print("*****************************************************");
-  script.Print(" Compiled: %s "%(build));
-  script.Print(" For: %s   "%(model));
+  script.Print(" Android Version : %s"%(android_version));
+  script.Print(" Build ID        : %s"%(build_id));
+  script.Print(" Build Date      : %s"%(build));
+  script.Print(" Security Patch  : %s"%(security_patch));
+  script.Print(" Device          : %s"%(device));
+  script.Print(" Manufacturer    : %s"%(manufacturer));
   script.Print("*****************************************************");
 
   def GetBlockDifference(partition):
