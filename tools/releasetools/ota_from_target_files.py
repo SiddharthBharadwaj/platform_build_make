@@ -1068,7 +1068,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.ShowProgress(0.2, 10)
   device_specific.FullOTA_InstallEnd()
 
-  script.Print("ColtOS is intalled, Feel the Enigma");
+  script.Print("ColtOS is installed, Feel the Enigma");
 
   if OPTIONS.extra_script is not None:
     script.AppendExtra(OPTIONS.extra_script)
