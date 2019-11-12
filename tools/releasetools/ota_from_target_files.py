@@ -987,26 +987,24 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
   device = target_info.GetBuildProp("ro.product.device")
 
-  script.Print("*****************************************************");
-  script.Print("*   ____            ___    __    _____   ____       *");
-  script.Print("* /\  _`\         /\_ \  /\ \__/\  __`\/\  _`\      *");
-  script.Print("* \ \ \/\_\    ___\//\ \ \ \ ,_\ \ \/\ \ \,\L\_\    *");
-  script.Print("*  \ \ \/_/_  / __`\\ \ \ \ \ \/\ \ \ \ \/_\__ \    *");
-  script.Print("*   \ \ \L\ \/\ \L\ \\_\ \_\ \ \_\ \ \_\ \/\ \L\ \  *");
-  script.Print("*    \ \____/\ \____//\____\\ \__\\ \_____\ `\____\ *");
-  script.Print("*     \/___/  \/___/ \/____/ \/__/ \/_____/\/_____/ *");
-  script.Print("*                                                   *");
-  script.Print("*****************************************************");
-  script.Print("*             by Rakesh Batra (*TeamColt)           *");
-  script.Print("*                Its Android 10 Enjoy               *");
-  script.Print("*****************************************************");
+  script.Print("************************************");
+  script.Print("*     ___      _ _       ___  __   *");
+  script.Print("*    / __\___ | | |_    /___\/ _\  *");
+  script.Print("*   / /  / _ \| | __|  //  //\ \   *");
+  script.Print("*  / /__| (_) | | |_  / \_// _\ \  *");
+  script.Print("*  \____/\___/|_|\__| \___/  \__/  *");
+  script.Print("*                                  *");
+  script.Print("************************************");
+  script.Print("*    by Rakesh Batra (*TeamColt)   *");
+  script.Print("*       Its Android 10 Enjoy       *");
+  script.Print("*****************************************");
   script.Print(" Android Version : %s"%(android_version));
   script.Print(" Build ID        : %s"%(build_id));
   script.Print(" Build Date      : %s"%(build));
   script.Print(" Security Patch  : %s"%(security_patch));
   script.Print(" Device          : %s"%(device));
   script.Print(" Manufacturer    : %s"%(manufacturer));
-  script.Print("*****************************************************");
+  script.Print("******************************************");
 
   def GetBlockDifference(partition):
     # Full OTA is done as an "incremental" against an empty source image. This
